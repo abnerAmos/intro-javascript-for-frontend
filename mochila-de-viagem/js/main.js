@@ -16,27 +16,25 @@ form.addEventListener("submit", (event) => {
     const quantidade = event.target.elements['quantidade'].value;
 
     const exist = itens.find(element => element.nome === nome)
-    console.log(exist)
     const currentItem = { // gerando um objeto
         "nome": nome,
         "quantidade" : quantidade
     }
-    console.log(currentItem)
+
     if (exist) {
         currentItem.id = exist.id
         updateElement(currentItem)
-        itens[exist.id] = currentItem
+        itens[itens.findIndex(element => element.id === exist.id)] = currentItem
     } else {
-        currentItem.id = itens.length
+        currentItem.id = itens[itens.length -1] ? (itens[itens.length-1]).id + 1 : 0
         createElement(currentItem)
         itens.push(currentItem) // iterando a lista com os itens criados no objeto
     }
     
-    console.log(itens)
     localStorage.setItem("itens", JSON.stringify(itens)) // adicionando o array de objetos no localStorage
 
-    nome.value = ""
-    quantidade.value = ""
+    this.nome.value = ""
+    this.quantidade.value = ""
 });
 
 function createElement(item) {
@@ -50,6 +48,8 @@ function createElement(item) {
     newItem.appendChild(itemNumber) // junta as duas tags geradas
     newItem.innerHTML += item.nome
 
+    newItem.appendChild(deleteButton(item.id))
+
     list.appendChild(newItem) // adiciona o novo item criado a lista
     //<li class="item"><strong>10</strong>Camisa</li>
     
@@ -57,4 +57,30 @@ function createElement(item) {
 
 function updateElement(item) {
     document.querySelector("[data-id='"+item.id+"']").innerHTML = item.quantidade
+}
+
+function deleteButton(id) {
+    const elementButton = document.createElement("button")
+    elementButton.innerText = "X"
+
+    elementButton.addEventListener("click", function() {
+        deleteElement(this.parentNode, id)
+    })
+
+    return elementButton
+}
+
+function deleteElement(tag, id) {
+    tag.remove()
+
+    /* .splice() - pode adicionar ou remover um item no array,
+    pode receber 3 tipos de parametros:
+    primeiro - Indica o item no array referência da posição;
+    segundo - Indica quantos itens devem ser removidos a partir do index informado no primeiro parâmetro;
+    terceiro - Indica um ou vários itens "string" que será adicionado antes do index informado como referência */
+    itens.splice(itens.findIndex(element => element.id === id), 1)
+    localStorage.setItem("itens", JSON.stringify(itens))
+
+    console.log(itens)
+
 }
