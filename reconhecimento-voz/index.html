@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="
+    https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css
+    " rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Game Secret Number</title>
+</head>
+<body>
+    <div id="msg-initial">
+        <h1>Secret Number Game</h1>
+        <h3>To play is easy, hit the secret number that is between <span id="smaller-value">0</span> and <span id="bigger-value">100</span></h3>
+        <button id="play" class="btn-play"><i class="fa-solid fa-play"></i></button>
+    </div>
+
+    <div id="guess" class="msg"></div>
+
+    <script src="app/voiceRecognition.js"></script>
+</body>
+</html>

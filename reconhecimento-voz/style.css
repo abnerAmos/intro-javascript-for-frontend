@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital@1&display=swap');
+
+:root {
+    --bg-color: #F6F6C9;
+    --sec-bg-color: #4FA095;
+    --primary-color: #153462;
+    --font-family: 'DM Sans', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    font-family: var(--font-family);
+}
+
+h1 {
+    font-size: 5em;
+}
+
+h3 {
+    font-size: 2em;
+    margin-top: 1em;
+}
+
+.msg {
+    font-size: 1.5em;
+    margin-top: 2em;
+}
+
+.box {
+    border: 2px solid;
+    display: inline-block;
+    font-size: 4em;
+    padding: 0.2em;
+    margin: 0.5em;
+}
+
+.btn-play-again {
+    padding: 1em;
+    border: 0;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    color: white;
+    margin-top: 5em;
+    font-size: 1em;
+    font-family: var(--font-family);
+}
+
+.btn-play-again:hover {
+    background-color: black;
+}
+
+.btn-play-again:active {
+    transform: scale(0.8);
+}
+
+.btn-play {
+    padding: 1em;
+    border: 0;
+    background-color: var(--primary-color);
+    border-radius: 50px;
+    color: white;
+    margin-top: 5em;
+    font-size: 2em;
+}
+
+.btn-play:hover {
+    background-color: black;
+}
+
+.btn-play:active {
+    transform: scale(0.8);
+}
