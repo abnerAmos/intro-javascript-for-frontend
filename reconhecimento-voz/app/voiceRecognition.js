@@ -39,8 +39,13 @@ function showTip(guess) {
         <div>The secret number it's bigger <i class="fa-solid fa-arrow-up fa-bounce"></i></div>
     `
     } else if (parseInt(guess) == randomNumber) {
-        recognition.stop()
-        elementInitial.innerHTML = `
+        recognition.onspeechend = () => {
+            recognition.stop();
+        }
+        
+        recognition.addEventListener('end', () => recognition.stop())
+        elementInitial.innerHTML = ""
+        elementGuess.innerHTML = `
         <h1>Congratulations!</h1>
         <h3>You hit, the secret number is ${guess}</h3>
         <button id="play-again" class="btn-play-again">Play again</button>
