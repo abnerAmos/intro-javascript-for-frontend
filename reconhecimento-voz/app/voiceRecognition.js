@@ -27,16 +27,24 @@ function showTip(guess) {
         <div>Try again!</i></div>
     `
     } else if (parseInt(guess) > randomNumber) {
+        elementInitial.innerHTML = ""
         elementGuess.innerHTML = `
+        <h2>Almost there!</h2>
+        <p>Speak another number</p>
         <div>You said:</div>
         <span class="box" id="random-number">${guess}</span>
-        <div>The secret number it's smaller <i class="fa-solid fa-arrow-down fa-bounce"></i></div>
+        <div class="small-or-big">The secret number it's smaller</div>
+        <i class="fa-solid fa-arrow-down fa-bounce"></i>
     `
     } else if (parseInt(guess) < randomNumber) {
+        elementInitial.innerHTML = ""
         elementGuess.innerHTML = `
+        <h2>Almost there!</h2>
+        <p>Speak another number</p>
         <div>You said:</div>
         <span class="box" id="random-number">${guess}</span>
-        <div>The secret number it's bigger <i class="fa-solid fa-arrow-up fa-bounce"></i></div>
+        <div class="small-or-big">The secret number it's bigger</div>
+        <i class="fa-solid fa-arrow-up fa-bounce"></i>
     `
     } else if (parseInt(guess) == randomNumber) {
         recognition.onspeechend = () => {
@@ -47,7 +55,7 @@ function showTip(guess) {
         elementInitial.innerHTML = ""
         elementGuess.innerHTML = `
         <h1>Congratulations!</h1>
-        <h3>You hit, the secret number is ${guess}</h3>
+        <h3>You guessed, the secret number is ${guess}</h3>
         <button id="play-again" class="btn-play-again">Play again</button>
         `
     }
@@ -60,7 +68,7 @@ document.body.addEventListener('click', event => {
         window.location.reload()
     } else if (event.target.id == 'play') {
         elementInitial.innerHTML = `
-        <h3>Say a number:</h3>
+        <h3>Speak a number:</h3>
         `
         playGame();
     }

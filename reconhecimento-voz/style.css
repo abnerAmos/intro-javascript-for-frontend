@@ -20,8 +20,19 @@ body {
     font-family: var(--font-family);
 }
 
+p {
+    color: red;
+    font-size: 1em;
+    margin-bottom: 2em;
+}
+
 h1 {
     font-size: 5em;
+}
+
+h2 {
+    font-size: 3em;
+    margin-bottom: 0.1em;
 }
 
 h3 {
@@ -32,6 +43,10 @@ h3 {
 .msg {
     font-size: 1.5em;
     margin-top: 2em;
+}
+
+.small-or-big {
+    margin-bottom: 1em;
 }
 
 .box {

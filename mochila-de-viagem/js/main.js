@@ -9,7 +9,10 @@ itens.forEach( (element) => {
 });
 
 // addEventListener: aguarda a função informada no parametro ("submit") ser ativada pelo event
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", test);
+
+function test(event) {
+
     event.preventDefault();
 
     const nome = event.target.elements['nome'].value;
@@ -35,7 +38,7 @@ form.addEventListener("submit", (event) => {
 
     this.nome.value = ""
     this.quantidade.value = ""
-});
+}
 
 function createElement(item) {
 
